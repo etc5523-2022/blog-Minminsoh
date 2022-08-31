@@ -2,16 +2,30 @@
   {
     "objectID": "posts/week01/index.html",
     "href": "posts/week01/index.html",
-    "title": "Basic communication theory and practice",
+    "title": "Physical Activity",
     "section": "",
-    "text": "Basic communication theory and its relevancy with communicating with data\nDemonstrate communication competency by selecting appropriate behaviour based on audience and self monitoring\nIdentify and apply rhetorical elements to improve data storytelling\nClearly articulate and express technical problems for others to help you"
+    "text": "health benefits"
   },
   {
-    "objectID": "posts/week01/index.html#slides",
-    "href": "posts/week01/index.html#slides",
-    "title": "Basic communication theory and practice",
-    "section": "Slides",
-    "text": "Slides"
+    "objectID": "posts/week01/index.html#key-statistics",
+    "href": "posts/week01/index.html#key-statistics",
+    "title": "Physical Activity",
+    "section": "Key Statistics",
+    "text": "Key Statistics\n\n\n\n\n\n\n\nOn average, 22.63% of people in US met the physical activity guideline.\nMale exercises more compared to female in US as shown in Table 1 and Figure 1.\nWorking group exercises more compared to non working group in US as shown in Table 2 and Figure 2.\n\n\n\n\n\n\n\nNote\n\n\n\nPhysical activity guideline can be obtained from here."
+  },
+  {
+    "objectID": "posts/week01/index.html#exercise-rate-comparison---male-vs-female",
+    "href": "posts/week01/index.html#exercise-rate-comparison---male-vs-female",
+    "title": "Physical Activity",
+    "section": "Exercise Rate Comparison - Male VS Female",
+    "text": "Exercise Rate Comparison - Male VS Female\n\nTableGraph\n\n\n\n\n\n\nTable 1:  Average exercise rate by gender \n \n  \n    Gender \n    Average Excercise Rate (%) \n  \n \n\n  \n    Male \n    27 \n  \n  \n    Female \n    19 \n  \n\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 1: Percentage of Male or Female in US who met the physical activity guidelines."
+  },
+  {
+    "objectID": "posts/week01/index.html#exercise-rate-comparison---working-vs-non-working",
+    "href": "posts/week01/index.html#exercise-rate-comparison---working-vs-non-working",
+    "title": "Physical Activity",
+    "section": "Exercise Rate Comparison - Working VS Non working",
+    "text": "Exercise Rate Comparison - Working VS Non working\n\n\n\n\n\nTable 2:  Average exercise rate by work \n \n  \n    Work Status \n    Average Excercise Rate (%) \n  \n \n\n  \n    Working \n    24 \n  \n  \n    Nonworking \n    18 \n  \n\n\n\n\n\n\n\n\n\n\n\nFigure 2: Percentage of Working or Non working population in US who met the physical activity guidelines.\n\n\n\n\n\nPhysical Activity Guideline in US1\n\n\n\n\n\nFigure 3: Temperature and ozone level.\n\n\n\n\nFigure 3 further explores the impact of temperature on ozone level."
   },
   {
     "objectID": "posts/welcome/index.html",
@@ -23,16 +37,37 @@
   {
     "objectID": "posts/week02/index.html",
     "href": "posts/week02/index.html",
-    "title": "Introduction to web technologies",
+    "title": "Exercise Rate in US at state(s) level",
     "section": "",
-    "text": "Understand the make up of web documents, i.e. HTML, CSS and JS\nWrite basic HTML and CSS with valid syntax\nUse CSS selectors to apply new styles\nIntegrate CSS and JS to R markdown documents with HTML output"
+    "text": "Physical Activity in US at state(s) level\nPhysical Activity in US at state(s) level by Gender and Work Status"
   },
   {
-    "objectID": "posts/week02/index.html#slides",
-    "href": "posts/week02/index.html#slides",
-    "title": "Introduction to web technologies",
-    "section": "Slides",
-    "text": "Slides"
+    "objectID": "posts/week02/index.html#of-population-in-each-state-that-met-the-physical-activity-guidelines",
+    "href": "posts/week02/index.html#of-population-in-each-state-that-met-the-physical-activity-guidelines",
+    "title": "Exercise Rate in US at state(s) level",
+    "section": "% of Population in each state that met the Physical Activity Guidelines",
+    "text": "% of Population in each state that met the Physical Activity Guidelines\n\n\n?(caption)"
+  },
+  {
+    "objectID": "posts/week02/index.html#thematic-map-of-us-on-distribution-of-percentage-of-population-in-each-state-which-met-the-physical-activity-guidelines",
+    "href": "posts/week02/index.html#thematic-map-of-us-on-distribution-of-percentage-of-population-in-each-state-which-met-the-physical-activity-guidelines",
+    "title": "Exercise Rate in US at state(s) level",
+    "section": "Thematic map of US on distribution of percentage of population in each state which met the Physical Activity Guidelines",
+    "text": "Thematic map of US on distribution of percentage of population in each state which met the Physical Activity Guidelines\n\n\n\n\n\n\n\n\nFigure 1: Percentage of population in each state who met the Physical Activity Guidelines in the United States\n\n\n\n\n\n\n\n\n\nTip\n\n\n\nTip: Hover your mouse on the map to find out how each state differs in the exercise rate !"
+  },
+  {
+    "objectID": "posts/week02/index.html#what-about-percentage-of-population-in-each-state-which-met-the-physical-activity-guidelines-by-gender",
+    "href": "posts/week02/index.html#what-about-percentage-of-population-in-each-state-which-met-the-physical-activity-guidelines-by-gender",
+    "title": "Exercise Rate in US at state(s) level",
+    "section": "What about percentage of population in each state which met the Physical Activity Guidelines by Gender ?",
+    "text": "What about percentage of population in each state which met the Physical Activity Guidelines by Gender ?\n?@fig-stategender further explores the distribution of population in each state which met the Physical Activity Guidelines by Gender. Here, we are showing the 10 states with highest percentage of population who met the guidelines by Male and Female. The results vary slightly compared to the ranking shown in ?@tbl-avgwork . We can observe that among Male, District of Columbia is the most active state, fllowed by Vermont, Idaho and Colorado. As compared to Female, New Hampshire and Colorado share the highest percentage, follow by Utah, Idaho and Washington. However in general, male is generally more active compared to female.\n\n\n\n\n\n\nFigure 2: Top 10 States in the United States with the highest percentage of male population who met the physical activity guidelines\n\n\n\n\n\n\n\nFigure 3: Top 10 States in the United States with the highest percentage of female population who met the physical activity guidelines"
+  },
+  {
+    "objectID": "posts/week02/index.html#what-about-percentage-of-population-in-each-state-which-met-the-physical-activity-guidelines-by-work-status",
+    "href": "posts/week02/index.html#what-about-percentage-of-population-in-each-state-which-met-the-physical-activity-guidelines-by-work-status",
+    "title": "Exercise Rate in US at state(s) level",
+    "section": "What about percentage of population in each state which met the Physical Activity Guidelines by Work Status ?",
+    "text": "What about percentage of population in each state which met the Physical Activity Guidelines by Work Status ?"
   },
   {
     "objectID": "posts/week03/index.html",
@@ -53,7 +88,7 @@
     "href": "index.html",
     "title": "ETC5523 Blog Assessment",
     "section": "",
-    "text": "lecture\n\n\n\n\n\n\n\n\n\n\n\nAug 8, 2022\n\n\nEmi Tanaka\n\n\n\n\n\n\n  \n\n\n\n\n\n\n\n\n\n\nlecture\n\n\n\n\n\n\n\n\n\n\n\nAug 1, 2022\n\n\nEmi Tanaka\n\n\n\n\n\n\n  \n\n\n\n\n\n\n\n\n\n\nlecture\n\n\n\n\n\n\n\n\n\n\n\nJul 25, 2022\n\n\nEmi Tanaka\n\n\n\n\n\n\n  \n\n\n\n\n\n\n\n\n\n\nnews\n\n\n\n\n\n\n\n\n\n\n\nJul 18, 2022\n\n\nEmi Tanaka\n\n\n\n\n\n\nNo matching items"
+    "text": "lecture\n\n\n\n\n\n\n\n\n\n\n\nAug 8, 2022\n\n\nEmi Tanaka\n\n\n\n\n\n\n  \n\n\n\n\n\n\n\n\n\n\nlecture\n\n\n\n\n\n\n\n\n\n\n\nAug 1, 2022\n\n\nMin Min Soh\n\n\n\n\n\n\n  \n\n\n\n\n\n\n\n\n\n\nlecture\n\n\n\n\n\n\n\n\n\n\n\nJul 25, 2022\n\n\nMin Min Soh\n\n\n\n\n\n\n  \n\n\n\n\n\n\n\n\n\n\nnews\n\n\n\n\n\n\n\n\n\n\n\nJul 18, 2022\n\n\nEmi Tanaka\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "about.html",
