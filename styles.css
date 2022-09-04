@@ -1,13 +1,14 @@
 /* css styles */
-.navbar-dark, .quarto-title-banner {
-  background-color: #006DAE;
+.quarto-title-banner {
+  background-color: #F4A460;
 }
 
-
-.big-text {
-  font-size: 120px;
-  color: #006DAE;
+.navbar-dark {
+  background-color: #F4A460;
 }
 
-
+.key-background {
+ background-color: #E0FFFF;
+ border:2px #191970;
+}
 

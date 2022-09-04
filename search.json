@@ -4,97 +4,48 @@
     "href": "posts/week01/index.html",
     "title": "Physical Activity",
     "section": "",
-    "text": "health benefits"
+    "text": "Keeping active is essential for maintaining physical health and weight. Despite the benefits of being physically active, physical inactivity is identified as the fourth leading risk factor for death globally. Major implications include a rise of health conditions, such as stroke, heart disease, type 2 diabetes and certain types of cancer.\n\n\n\n\nAccording to CDC (2022), the US obesity prevalence has increased from 30.5% to 41.9% from 2000 to 2020. Obesity also leads to a significant medical costs in the United States, where the estimated annual medical costs was around $173 billion in 2019."
   },
   {
     "objectID": "posts/week01/index.html#key-statistics",
     "href": "posts/week01/index.html#key-statistics",
     "title": "Physical Activity",
     "section": "Key Statistics",
-    "text": "Key Statistics\n\n\n\n\n\n\n\nOn average, 22.63% of people in US met the physical activity guideline.\nMale exercises more compared to female in US as shown in Table 1 and Figure 1.\nWorking group exercises more compared to non working group in US as shown in Table 2 and Figure 2.\n\n\n\n\n\n\n\nNote\n\n\n\nPhysical activity guideline can be obtained from here."
+    "text": "Key Statistics\n\n\n\n\n\nOn average, only about 22.52% of adults in US met the physical activity guideline.\nMale exercises more compared to female in US as shown in Table 1 and Figure 1.\nWorking adults exercises more compared to non working adults in US as shown in Table 2 and Figure 2.\nPercentage of adults who reach the guideline varies by state, where the most active state is Colorado reaching around 32% and Mississippi being the least active state - around 13.5%, as shown in Figure 4."
   },
   {
     "objectID": "posts/week01/index.html#exercise-rate-comparison---male-vs-female",
     "href": "posts/week01/index.html#exercise-rate-comparison---male-vs-female",
     "title": "Physical Activity",
     "section": "Exercise Rate Comparison - Male VS Female",
-    "text": "Exercise Rate Comparison - Male VS Female\n\nTableGraph\n\n\n\n\n\n\nTable 1:  Average exercise rate by gender \n \n  \n    Gender \n    Average Excercise Rate (%) \n  \n \n\n  \n    Male \n    27 \n  \n  \n    Female \n    19 \n  \n\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 1: Percentage of Male or Female in US who met the physical activity guidelines."
+    "text": "Exercise Rate Comparison - Male VS Female\n\nTableGraph\n\n\n\n\n\n\nTable 1:  Average exercise rate by gender \n \n  \n    Gender \n    Average Excercise Rate (%) \n  \n \n\n  \n    Male \n    26 \n  \n  \n    Female \n    19 \n  \n\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 1: Percentage of Male Adults and Female Adults in US who met the physical activity guidelines.\n\n\n\n\n\n\n\nOn average, 26 % of male adults reach the physical activity guidelines while only 19 % of female adults work out sufficiently. This is the similar issue recognised worldwide, where women are less active than men across most countries. Gender gap in physical activity is mainly due to concerns about stereotypes, sociocultural norms and attitudes towards physical activity since childhood. Cla (2018) found that girls during teenage years tend to experience less confidence and less enjoyment from sports as compared to boys, which then shape their attitudes to physical activity into adulthood. Apart from that, there are less investments in women and girls’ sports, including access to transport, coaching and access to equipment facilities. In adulthood, apart from managing work, women still play a significant role in childcare and managing household, which then lead to less available time to work out."
   },
   {
     "objectID": "posts/week01/index.html#exercise-rate-comparison---working-vs-non-working",
     "href": "posts/week01/index.html#exercise-rate-comparison---working-vs-non-working",
     "title": "Physical Activity",
     "section": "Exercise Rate Comparison - Working VS Non working",
-    "text": "Exercise Rate Comparison - Working VS Non working\n\n\n\n\n\nTable 2:  Average exercise rate by work \n \n  \n    Work Status \n    Average Excercise Rate (%) \n  \n \n\n  \n    Working \n    24 \n  \n  \n    Nonworking \n    18 \n  \n\n\n\n\n\n\n\n\n\n\n\nFigure 2: Percentage of Working or Non working population in US who met the physical activity guidelines.\n\n\n\n\n\nPhysical Activity Guideline in US1\n\n\n\n\n\nFigure 3: Temperature and ozone level.\n\n\n\n\nFigure 3 further explores the impact of temperature on ozone level."
+    "text": "Exercise Rate Comparison - Working VS Non working\n\nTablePlot\n\n\n\n\n\n\nTable 2:  Average exercise rate by work \n \n  \n    Work Status \n    Average Excercise Rate (%) \n  \n \n\n  \n    Working \n    24 \n  \n  \n    Nonworking \n    18 \n  \n\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 2: Percentage of Working Adults and Non working adults in US who met the physical activity guidelines.\n\n\n\n\n\n\n\nOn average, 24 % of working adults reach the physical activity guidelines as compared to 18 % of non working adults. This maybe associated to the high costs of gyms, where people who are working are more likely to afford the costs as compared to who aren’t."
   },
   {
-    "objectID": "posts/welcome/index.html",
-    "href": "posts/welcome/index.html",
-    "title": "Welcome To My Blog Template",
-    "section": "",
-    "text": "This is the first post in a Quarto blog. Welcome!"
-  },
-  {
-    "objectID": "posts/week02/index.html",
-    "href": "posts/week02/index.html",
-    "title": "Exercise Rate in US at state(s) level",
-    "section": "",
-    "text": "Physical Activity in US at state(s) level\nPhysical Activity in US at state(s) level by Gender and Work Status"
-  },
-  {
-    "objectID": "posts/week02/index.html#of-population-in-each-state-that-met-the-physical-activity-guidelines",
-    "href": "posts/week02/index.html#of-population-in-each-state-that-met-the-physical-activity-guidelines",
-    "title": "Exercise Rate in US at state(s) level",
-    "section": "% of Population in each state that met the Physical Activity Guidelines",
-    "text": "% of Population in each state that met the Physical Activity Guidelines\n\n\n?(caption)"
-  },
-  {
-    "objectID": "posts/week02/index.html#thematic-map-of-us-on-distribution-of-percentage-of-population-in-each-state-which-met-the-physical-activity-guidelines",
-    "href": "posts/week02/index.html#thematic-map-of-us-on-distribution-of-percentage-of-population-in-each-state-which-met-the-physical-activity-guidelines",
-    "title": "Exercise Rate in US at state(s) level",
-    "section": "Thematic map of US on distribution of percentage of population in each state which met the Physical Activity Guidelines",
-    "text": "Thematic map of US on distribution of percentage of population in each state which met the Physical Activity Guidelines\n\n\n\n\n\n\n\n\nFigure 1: Percentage of population in each state who met the Physical Activity Guidelines in the United States\n\n\n\n\n\n\n\n\n\nTip\n\n\n\nTip: Hover your mouse on the map to find out how each state differs in the exercise rate !"
-  },
-  {
-    "objectID": "posts/week02/index.html#what-about-percentage-of-population-in-each-state-which-met-the-physical-activity-guidelines-by-gender",
-    "href": "posts/week02/index.html#what-about-percentage-of-population-in-each-state-which-met-the-physical-activity-guidelines-by-gender",
-    "title": "Exercise Rate in US at state(s) level",
-    "section": "What about percentage of population in each state which met the Physical Activity Guidelines by Gender ?",
-    "text": "What about percentage of population in each state which met the Physical Activity Guidelines by Gender ?\n?@fig-stategender further explores the distribution of population in each state which met the Physical Activity Guidelines by Gender. Here, we are showing the 10 states with highest percentage of population who met the guidelines by Male and Female. The results vary slightly compared to the ranking shown in ?@tbl-avgwork . We can observe that among Male, District of Columbia is the most active state, fllowed by Vermont, Idaho and Colorado. As compared to Female, New Hampshire and Colorado share the highest percentage, follow by Utah, Idaho and Washington. However in general, male is generally more active compared to female.\n\n\n\n\n\n\nFigure 2: Top 10 States in the United States with the highest percentage of male population who met the physical activity guidelines\n\n\n\n\n\n\n\nFigure 3: Top 10 States in the United States with the highest percentage of female population who met the physical activity guidelines"
-  },
-  {
-    "objectID": "posts/week02/index.html#what-about-percentage-of-population-in-each-state-which-met-the-physical-activity-guidelines-by-work-status",
-    "href": "posts/week02/index.html#what-about-percentage-of-population-in-each-state-which-met-the-physical-activity-guidelines-by-work-status",
-    "title": "Exercise Rate in US at state(s) level",
-    "section": "What about percentage of population in each state which met the Physical Activity Guidelines by Work Status ?",
-    "text": "What about percentage of population in each state which met the Physical Activity Guidelines by Work Status ?"
-  },
-  {
-    "objectID": "posts/week03/index.html",
-    "href": "posts/week03/index.html",
-    "title": "Communicating data with interactive web apps",
-    "section": "",
-    "text": "Use interactivity to enable data exploration, understanding and communication\nDesign web apps with displays that fit for the purpose\nMake web applications using shiny"
-  },
-  {
-    "objectID": "posts/week03/index.html#analysis",
-    "href": "posts/week03/index.html#analysis",
-    "title": "Communicating data with interactive web apps",
-    "section": "Analysis",
-    "text": "Analysis\n\nlibrary(tidyverse)\nlibrary(tidycovid19)\ndf <- download_merged_data(cached = TRUE, silent = TRUE)\n\n\ng <- df %>% \n  filter(country == \"Australia\") %>% \n  mutate(cases_new = diff(c(0, confirmed))) %>% \n  filter(between(date, as.Date(\"2022-03-01\"), as.Date(\"2022-08-30\"))) %>% \n  ggplot(aes(date, cases_new)) +\n  geom_line() +\n  labs(x = \"Date\", y = \"New COVID-19 Cases\",\n       title = \"Australia\") +\n  theme_classic(base_size = 14)\n\nplotly::ggplotly(g)"
+    "objectID": "posts/week01/index.html#geographic-differences---what-about-exercise-rate-in-each-state-in-us",
+    "href": "posts/week01/index.html#geographic-differences---what-about-exercise-rate-in-each-state-in-us",
+    "title": "Physical Activity",
+    "section": "Geographic Differences? - What about exercise rate in each state in US?",
+    "text": "Geographic Differences? - What about exercise rate in each state in US?\nAs observed in Figure 3 and Figure 4, the percentage of adults reaching the national exercise target varies between states. As mentioned before, the average national level is 22.52% , which represents the percentage of adults reaching the national physical activity guideline. Figure 3 shows which states are above the national average, below the national average or around the national average. Figure 4 then shows the disparity of the percentage of adults reaching the national target level in each state.\nCounties in the central such as Colorado and Utah as well as along the west coasts such as California are much more active where there are higher percentage of adults having more exercise than the national average as observed in Figure 3. Among which, Colorado is the most active state as shown in Figure 4, around 32% of adults meeting the national physical activity guidelines. David Bassett, co-director of the University of Tennessee’s Obesity Research Center points out that Colorado is one of the wealthy regions in the country, and the temperate climate as well as access to trails encourage people to pursue outdoor activities (Suddath (2009)).\nIn contrast, Figure 3 shows that most of the states in the southeast are below than the national average, such as Kentucky, Mississippi, West Virginia and South Carolina. We can also observe that Mississippi being the least active state in Figure 4 where only 13% of adults reaching the national target.\nThese were discussed in Suddath (2009), where the South’s weather is hot and humid, therefore discouraging people from doing physical activities during summer, unlike the healthier states such as California. The lack of public transportation and access to sidewalks in the region also contribute to the problem, as for most people, the best way to commute is by car. These have also led to a high percentage of health issues such as heart disease and hypertension among the population in that region.\n\n\n\n\n\n\n\n\nFigure 3: This figure shows the percentage of adults in each state who met the Physical Activity Guidelines. The percentage in each state is compared to the National Average 22 percent, and is categorised into 3 groups, namely Above Average, Average and Below Average. Counties in the central such as Colorado and Utah as well as along the west coasts such as California are much more active. In contrast, most of the states in the southeast are below than the national average, such as Kentucky, Mississippi, West Virginia and South Carolina.\n\n\n\n\n\n\n\n\n\nFigure 4: This figure shows the percentage of adults in each state who met the Physical Activity Guidelines. Colorado is the most active state compared to the other states in the United States. The least active state is Mississippi."
   },
   {
     "objectID": "index.html",
     "href": "index.html",
     "title": "ETC5523 Blog Assessment",
     "section": "",
-    "text": "lecture\n\n\n\n\n\n\n\n\n\n\n\nAug 8, 2022\n\n\nEmi Tanaka\n\n\n\n\n\n\n  \n\n\n\n\n\n\n\n\n\n\nlecture\n\n\n\n\n\n\n\n\n\n\n\nAug 1, 2022\n\n\nMin Min Soh\n\n\n\n\n\n\n  \n\n\n\n\n\n\n\n\n\n\nlecture\n\n\n\n\n\n\n\n\n\n\n\nJul 25, 2022\n\n\nMin Min Soh\n\n\n\n\n\n\n  \n\n\n\n\n\n\n\n\n\n\nnews\n\n\n\n\n\n\n\n\n\n\n\nJul 18, 2022\n\n\nEmi Tanaka\n\n\n\n\n\n\nNo matching items"
+    "text": "Sep 4, 2022\n\n\nMin Min Soh\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "about.html",
     "href": "about.html",
     "title": "About",
     "section": "",
-    "text": "This is a blog template for the ETC5523 Communicating with Data assessment at Monash University."
+    "text": "Articles for modern and contemporary women planned, designed and written by someone seeking a healthy and uncomplicated lifestyle."
   }
 ]
