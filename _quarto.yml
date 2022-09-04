@@ -2,7 +2,7 @@ project:
   type: website
 
 website:
-  title: "blog-template"
+  title: "Min Min Soh"
   navbar:
     right:
       - about.qmd
@@ -10,7 +10,8 @@ website:
         href: https://github.com/etc5523-2022
 format:
   html:
-    theme: cosmo
+    theme: lumen
+    font-family: futura-lt-w01-book,sans-serif;
     css: styles.css
 
 

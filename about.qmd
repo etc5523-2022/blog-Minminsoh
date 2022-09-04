@@ -1,8 +1,9 @@
 ---
 title: "About"
-image: profile.jpg
+image: profile.png
 about:
-  template: jolla
+  template: trestles
+  image-width: 10em
   links:
     - icon: github
       text: Github
@@ -10,4 +11,21 @@ about:
 
 ---
 
-This is a blog template for the ETC5523 Communicating with Data assessment at Monash University.
+[**MIN MIN SOH**]{style="color:DodgerBlue;"}
+
+::: {.about-heading}
+SUMMARY
+:::
+
+I am a postgraduate student at Monash University, currently pursuing Master of Business Analytics. Outside of study/work, I enjoy spending time hiking and reading.  My inspiration is to be a business analyst, using my passion and skills in solving the real world problems. 
+
+
+::: {.about-heading}
+EDUCATION
+:::
+
+Monash University, Clayton |  Clayton, Australia
+Master of Business Analytics | Feb 2021 - Dec 2022
+
+University of Melbourne, Melbourne | Australia
+Bachelor of Commerce | Feb 2017 - Dec 2018

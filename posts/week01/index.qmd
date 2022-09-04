@@ -1,18 +1,327 @@
 ---
-title: "Basic communication theory and practice"
-author: "Emi Tanaka"
-date: "2022-07-25"
-categories: [lecture]
-image: "image.jpg"
+title: "Analysis about the Exercise Rate in the United States"
+author: "Min Min Soh"
+date: "2022-09-04"
+bibliography: references.bib
+format: 
+ html:
+   theme: Journal
+image: "exercise.jpeg"
 ---
 
-## Aims
+::: {.subheading}
+# WHY DOES IT MATTER?
+:::
 
-* Basic communication theory and its relevancy with communicating with data
-* Demonstrate communication competency by selecting appropriate behaviour based on audience and self monitoring
-* Identify and apply rhetorical elements to improve data storytelling 
-* Clearly articulate and express technical problems for others to help you
+::: {layout="[[30, 70], [100]]"}
 
-## Slides
+![](exercise4.jpeg)
 
-<iframe src="https://cwd.numbat.space/lectures/lecture-01.html" style="border: 1px solid black;" width="100%" height = "400px"></iframe>
+Keeping active is essential for maintaining physical health and weight. Despite the benefits of being physically active, physical inactivity is identified as the fourth leading risk factor for death globally. Major implications include a rise of health conditions, such as stroke, heart disease, type 2 diabetes and certain types of cancer. 
+
+According to @cdc_obesity_2022, the US obesity prevalence has increased from 30.5% to 41.9% from 2000 to 2020. Obesity also leads to a significant medical costs in the United States, where the estimated annual medical costs was around $173 billion in 2019. 
+
+
+![](exercise2.jpeg){.column-margin}
+
+:::
+
+
+::: {.subheading}
+# AIM OF STUDY 
+:::
+
+The purpose of the blog is to discuss the following: 
+
+- Key statistics about physical activity in the United States,
+- Demographics (gender and work status) of adults who met the federal physical activity guidelines in the United States,
+- Geographic differences in each state in the United States among the adults who met the federal physical activity guidelines in the United States. 
+
+In this analysis, my study will focus on the continental United States, excluding Alaska, Hawaii and the other Pacific Islands. These are mainly for practical reasons as they would skewed the state averages. 
+
+The r packages used in these analysis consist of @tidyverse, @ggplot2, @usmap, @sf, @kableExtra and @viridis. 
+
+::: {.subheading}
+# DATA SOURCE
+:::
+
+The dataset is been obtained from @tidytuesday, in which the link of the data can be obtained [here](https://github.com/rfordatascience/tidytuesday/blob/master/data/2018/2018-07-17/week16_exercise.xlsx).  
+
+The data dictionary for the data set has been given below. They define the variables and their types in each of the data sets.  
+
+```{r}
+#| label: setup
+#| include: false
+#| echo: false
+
+knitr::opts_chunk$set(echo = FALSE, warning= FALSE, message = FALSE)
+library(tidyverse)
+library(ggplot2)
+library(usmap)
+library(sf)
+library(kableExtra)
+library(viridis)
+
+```
+
+```{r readdata}
+#| echo: false
+#| warning : false
+#| message: false
+
+df <- read_csv("week16_exercise.csv") 
+df <- df %>% filter(!state %in% c("Alaska", "Hawaii"))
+
+df_table <- tibble(Variable = c("count", "state", "sex", "work_status", "exercise"),
+                   Class = c("double", "character", "character", "character", "double"),
+                   Description = c("ID", "Name of the state in the United States", "Gender - Male or female", "Working or non working", "Percentage of adults which met the physical activity guidelines in the United Stastes"))
+
+df_table%>% 
+  kable() %>%
+  kable_styling(bootstrap_options = c("striped", "hover")) 
+```
+
+:::{.callout-note} 
+The Physical Activity Guidelines for Americans can be obtained from [@physical2018](https://health.gov/sites/default/files/2019-09/Physical_Activity_Guidelines_2nd_edition.pdf). 
+
+It is issued by the U.S. Department of Health and Human Service (DHHS). To meet the physical activity guidelines, adults should reach at least 150 minutes a week of moderate-intensity or 75 mins a week of vigorous-intensity aerobic activity, or an equivalent combination of moderate- and vigorous-intensity aerobic activity. 
+::: 
+
+::: {.subheading}
+# ANALYSIS
+
+
+## Key Statistics
+
+:::
+```{r}
+#| echo: false
+
+# Average exercise rate in US 
+avg <- df %>% filter(sex == "both", 
+              work_status == "total")%>%
+  summarise(avg_exercise = mean(exercise, na.rm = TRUE))%>%
+  mutate_if(is.numeric, round, digits = 2)
+
+```
+
+::: {.key-background}
+
+- On average, only about **`r avg[1,1]`% of adults** in US met the physical activity guideline. 
+- **Male** exercises more compared to female in US as shown in @tbl-avggender and @fig-avggender. 
+- **Working adults** exercises more compared to non working adults in US as shown in @tbl-avgwork and @fig-avgwork. 
+- Percentage of adults who reach the guideline varies by state, where the most active state is **Colorado** reaching around 32% and **Mississippi** being the least active state - around 13.5%, as shown in @fig-statecomparison. 
+
+:::
+
+::: {.subheading}
+## Exercise Rate Comparison - Male VS Female  
+:::
+
+::: {.panel-tabset}
+
+### Table 
+```{r}
+#| echo: false
+#| label: tbl-avggender
+#| tbl-cap: "Average exercise rate by gender"
+
+df_average <- df %>% filter(!is.na(exercise))
+df3 <- df_average %>% filter(sex== "male", work_status=="all") %>% summarise(Male = mean(exercise))
+df4<- df_average %>% filter(sex== "female", work_status=="all") %>% summarise(Female = mean(exercise))
+
+df_gender <- bind_cols(df3,df4) %>% round(digits = 0) %>% pivot_longer(cols = Male:Female, names_to = "Gender", values_to = "Average Excercise Rate (%)" )
+
+kable(df_gender) %>%
+  kable_styling(bootstrap_options = c("striped", "hover"))
+```
+
+### Graph 
+
+```{r}
+#| output-location: column
+#| label: fig-avggender
+#| fig-cap: Percentage of Male Adults and Female Adults in US who met the physical activity guidelines.
+#| warning: false
+#| echo: false
+
+df_gender %>% ggplot() + 
+  geom_bar(aes(Gender, `Average Excercise Rate (%)`), stat="identity", fill = "lightblue")+
+  geom_text(aes(Gender,`Average Excercise Rate (%)`, label = paste(`Average Excercise Rate (%)`,"%",sep="") ), position= position_stack(vjust= 0.5), color =   "blue", size = 5)+
+  labs(y = "Percentage of Population in US (%)")+
+  theme_classic()
+
+
+
+```
+::: 
+
+On average,  `r df_gender[1,2]` % of male adults reach the physical activity guidelines while only  `r df_gender[2,2]` % of female adults work out sufficiently. This is the similar issue recognised worldwide, where women are less active than men across most countries. Gender gap in physical activity is mainly due to concerns about stereotypes, sociocultural norms and attitudes towards physical activity since childhood. @cla2018time found that girls during teenage years tend to experience less confidence and less enjoyment from sports as compared to boys, which then shape their attitudes to physical activity into adulthood. Apart from that, there are less investments in women and girls' sports, including access to transport, coaching and access to equipment facilities. In adulthood, apart from managing work, women still play a significant role in childcare and managing household, which then lead to less available time to work out. 
+
+::: {.subheading}
+## Exercise Rate Comparison - Working VS Non working   
+:::
+
+::: {.panel-tabset}
+
+### Table
+
+```{r}
+#| echo: false
+#| label: tbl-avgwork
+#| tbl-cap: "Average exercise rate by work"
+
+df1<- df_average %>% filter(work_status == "working") %>% summarise(Working = mean(exercise))
+df2<- df_average %>% filter(work_status == "non_working") %>% summarise(Nonworking = mean(exercise))
+df_work <- bind_cols(df1,df2) %>% round(digits = 0) %>% pivot_longer(cols = Working:Nonworking, names_to = "Work Status", values_to = "Average Excercise Rate (%)" )
+
+kable(df_work) %>%
+  kable_styling(bootstrap_options = c("striped", "hover"))
+```
+
+### Plot
+
+```{r}
+#| output-location: column
+#| label: fig-avgwork
+#| fig-cap: Percentage of Working Adults and Non working adults in US who met the physical activity guidelines.
+#| warning: false
+#| echo: false
+
+df_work %>% ggplot() + geom_bar(aes(`Work Status`, `Average Excercise Rate (%)`), stat="identity", fill = "blue")+
+  geom_text(aes(`Work Status`,`Average Excercise Rate (%)`, label = paste(`Average Excercise Rate (%)`,"%",sep="") ), position= position_stack(vjust= 0.5), color = "white", size =5)+
+  labs(y = "Percentage of Population in US (%)")+
+  theme_classic()
+
+
+```
+
+::: 
+
+On average,  `r df_work[1,2]` % of working adults reach the physical activity guidelines as compared to `r df_work[2,2]` % of non working adults.  This maybe associated to the high costs of gyms, where people who are working are more  likely to afford the costs as compared to who aren't.
+
+::: {.subheading}
+## Geographic Differences? - What about exercise rate in each state in US? 
+:::
+
+As observed in @fig-statecomparison2 and @fig-statecomparison, the percentage of adults reaching the national exercise target varies between states. As mentioned before, the average national level is **`r avg[1,1]`%** , which represents the percentage of adults reaching the national physical activity guideline. @fig-statecomparison2 shows which states are above the national average, below the national average or around the national average. @fig-statecomparison then shows the disparity of the percentage of adults reaching the national target level in each state. 
+
+Counties in the central such as Colorado and Utah as well as along the west coasts such as California are much more active where there are higher percentage of adults having more exercise than the national average as observed in @fig-statecomparison2.  Among which, **Colorado** is the most active state as shown in @fig-statecomparison, around **32% of adults** meeting the national physical activity guidelines. David Bassett, co-director of the University of Tennessee's Obesity Research Center points out that Colorado is one of the wealthy regions in the country, and the temperate climate as well as access to trails encourage people to pursue outdoor activities (@suddath_2009). 
+
+In contrast, @fig-statecomparison2 shows that most of the states in the southeast are below than the national average, such as Kentucky, Mississippi, West Virginia and South Carolina. We can also observe that **Mississippi** being the least active state in @fig-statecomparison where only **13% of adults** reaching the national target. 
+
+These were discussed in @suddath_2009, where the South's weather is hot and humid, therefore discouraging people from doing physical activities during summer, unlike the healthier states such as California. The lack of public transportation and access to sidewalks in the region also contribute to the problem, as for most people, the best way to commute is by car.  These have also led to a high percentage of health issues such as heart disease and hypertension among the population in that region.
+
+```{r}
+#| warning: false
+#| echo: false
+
+# US map plot
+USstates <- bind_cols(state.name, state.abb)%>% 
+  rename(region =...1, abb = ...2)%>%
+  mutate(region = tolower(region))
+states_map <- map_data("state") %>% as_tibble()
+states_map  <- left_join(USstates, states_map, by = "region")
+centroids <- states_map %>% 
+  filter(!region%in% c("alaska", "hawaii")) %>%
+  group_by(abb) %>% summarize(centroid_long = mean(long),
+                                                           centroid_lat = mean(lat))
+
+#Compute average exercise rate in each state
+df_state <- df %>% filter(work_status == "total", sex == "both") %>%
+  select(state,exercise) %>%
+  arrange(-exercise)%>%
+  mutate(state = tolower(state), 
+         rank = row_number()) %>%
+  mutate (Category = case_when(
+  exercise<22  ~ "Below Average",
+  between(exercise, 22, 23)  ~ "Average",
+  exercise>23  ~ "Above Average" ))%>%
+  rename(region = state) 
+
+centroids <- left_join(centroids, USstates, by = "abb") 
+centroids <- left_join(centroids, df_state, by = "region") 
+
+
+# Combine dataframe with US map
+df_state_plot <- left_join(df_state, states_map, by = "region")
+
+# Compute centroids for the lowest and highest
+first <- df_state_plot %>% 
+  filter(rank == 1)%>%
+  summarize(centroid_long = mean(long),
+            centroid_lat = mean(lat))
+
+last <- df_state_plot %>% 
+  filter(rank == 52)%>%
+  summarize(centroid_long = mean(long),
+            centroid_lat = mean(lat))
+```
+
+
+
+
+```{r}
+#| label: fig-statecomparison2
+#| fig-cap: This figure shows the percentage of adults in each state who met the Physical Activity Guidelines. The percentage in each state is compared to the National Average 22 percent, and is categorised into 3 groups, namely Above Average, Average and Below Average. Counties in the central such as Colorado and Utah as well as along the west coasts such as California are much more active. In contrast, most of the states in the southeast are below than the national average, such as Kentucky, Mississippi, West Virginia and South Carolina.
+#| echo: false
+#| message: false
+
+my_palette <- rev(magma(8))
+
+ggplot(df_state_plot, aes(long, lat, gsroup = region))+
+  geom_polygon(data = df_state_plot, aes(long, lat, group = region, fill = Category))+
+  geom_text(data = centroids, aes (x = centroid_long, y = centroid_lat, label=abb), size  = 2, alpha = 2, colour = "black")+
+  scale_fill_manual(values = my_palette, 
+                    name = "Exercise Rate compared to the National Average", 
+                    guide = guide_legend( keyheight = unit(3, units = "mm"), keywidth=unit(12, units = "mm"), label.position = "bottom", title.position = 'top', nrow=1))+
+  theme_void()+
+  ggtitle("Percentage of adults who met the national physical activity guidelines, by state")+
+  theme(
+    legend.position = "top",
+    plot.background = element_rect(fill = "#f5f5f5", color = NA), 
+    panel.background = element_rect(fill = "#f5f5f5", color = NA), 
+    legend.background = element_rect(fill = "#f5f5f5", color = NA),
+    plot.title = element_text(size= 12, hjust=1, color = "#4e4d47")
+  )  
+  
+
+```
+
+
+
+```{r}
+#| label: fig-statecomparison
+#| fig-cap: This figure shows the percentage of adults in each state who met the Physical Activity Guidelines. Colorado is the most active state compared to the other states in the United States. The least active state is Mississippi.
+#| echo: false
+
+ggplot(df_state_plot, aes(long, lat, group = region))+
+  geom_polygon(data = df_state_plot, aes(long, lat, group = region, fill = exercise))+
+  geom_text(data = centroids, aes (x = centroid_long, y = centroid_lat, label = paste(abb, exercise, sep="\n")), size  = 2) +
+  labs (fill = "Percentage of Adults")+
+  theme_void()+
+  ggtitle("Percentage of adults reaching the physical activity guidelines, comparing each state level")+
+  scale_fill_distiller(palette = "Spectral")+
+  theme(
+    legend.position = "top",
+    plot.background = element_rect(fill = "#f5f5f5", color = NA), 
+    panel.background = element_rect(fill = "#f5f5f5", color = NA), 
+    legend.background = element_rect(fill = "#f5f5f5", color = NA),
+    plot.title = element_text(size= 11, hjust=1, color = "#4e4d47")
+  ) 
+
+```
+
+::: {.subheading}
+# CONCLUSION
+:::
+
+The federal government released the guideline for physical activities, in which adults are encouraged to perform least 150 minutes a week of moderate-intensity or 75 mins a week of vigorous-intensity aerobic activity, or an equivalent combination of moderate- and vigorous-intensity aerobic activity. 
+
+Nonetheless, only about **`r avg[1,1]`% of adults** in US is meeting the national physical activity guideline. Among which, male exercises more compared to female and  working adults exercises more compared to non working adults. In addition to that, our analysis also found that the percentage of adults who get enough physical activities vary greatly by state. The most active state is Colorado and the least active state is Mississippi. 
+
+Being physically active is vital and has many health benefits. It reduces the risks of cardiovascular disease, type 2 diabetes, cancers and anxiety. It is time to reflect on how active your lifestyle is!
+
+
+
+
