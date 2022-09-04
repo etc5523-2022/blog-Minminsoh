@@ -1,10 +1,10 @@
 /* css styles */
 .quarto-title-banner {
-  background-color: #F4A460;
+  background-color: #000080;
 }
 
 .navbar-dark {
-  background-color: #F4A460;
+  background-color: #000080;
 }
 
 .key-background {
@@ -12,3 +12,12 @@
  border:2px #191970;
 }
 
+.about-heading {
+ background-color: #E0FFFF;
+ border:2px #191970;
+ font-style: bold;
+}
+
+.subheading{
+  color: DodgerBlue;
+}
