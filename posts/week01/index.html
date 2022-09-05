@@ -153,28 +153,24 @@ div.csl-indent {
 <section id="why-does-it-matter" class="level1 subheading">
 <h1>WHY DOES IT MATTER?</h1>
 </section>
-<div class="quarto-layout-panel page-columns page-full">
+<div class="quarto-layout-panel">
 <div class="quarto-layout-row quarto-layout-valign-top">
 <div class="quarto-layout-cell" style="flex-basis: 30.0%;justify-content: center;">
 <p><img src="exercise4.jpeg" class="img-fluid"></p>
 </div>
 <div class="quarto-layout-cell" style="flex-basis: 70.0%;justify-content: center;">
-<p>Keeping active is essential for maintaining physical health and weight. Despite the benefits of being physically active, physical inactivity is identified as the fourth leading risk factor for death globally. Major implications include a rise of health conditions, such as stroke, heart disease, type 2 diabetes and certain types of cancer.</p>
+<p>Keeping active is essential for maintaining physical health and weight. Major benefits include preventing health problems such as stroke, heart disease, type 2 diabetes and certain types of cancer. Apart from that, it also reduces the risks of dementia and promotes overall mental health.</p>
+</div>
+</div>
+<div class="quarto-layout-row quarto-layout-valign-top">
+<div class="quarto-layout-cell" style="flex-basis: 100.0%;justify-content: center;">
+<p>Despite the benefits of being physically active, physical inactivity is identified as the fourth leading risk factor for death globally.</p>
 </div>
 </div>
 <div class="quarto-layout-row quarto-layout-valign-top">
 <div class="quarto-layout-cell" style="flex-basis: 100.0%;justify-content: center;">
 <p>According to <span class="citation" data-cites="cdc_obesity_2022">CDC (<a href="#ref-cdc_obesity_2022" role="doc-biblioref">2022</a>)</span>, the US obesity prevalence has increased from 30.5% to 41.9% from 2000 to 2020. Obesity also leads to a significant medical costs in the United States, where the estimated annual medical costs was around $173 billion in 2019.</p>
 </div>
-</div>
-<div class="quarto-layout-row quarto-layout-valign-top page-columns page-full">
-<div class="quarto-layout-cell page-columns page-full" style="flex-basis: 100.0%;justify-content: center;">
-
-<div class="no-row-height column-margin column-container"><div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="exercise2.jpeg" class="img-fluid figure-img"></p>
-</figure>
-</div></div></div>
 </div>
 </div>
 <section id="aim-of-study" class="level1 subheading">
@@ -193,6 +189,9 @@ div.csl-indent {
 </section>
 <p>The dataset is been obtained from <span class="citation" data-cites="tidytuesday">Mock (<a href="#ref-tidytuesday" role="doc-biblioref">2022</a>)</span>, in which the link of the data can be obtained <a href="https://github.com/rfordatascience/tidytuesday/blob/master/data/2018/2018-07-17/week16_exercise.xlsx">here</a>.</p>
 <p>The data dictionary for the data set has been given below. They define the variables and their types in each of the data sets.</p>
+<div class="cell">
+
+</div>
 <div class="cell">
 <div class="cell-output-display">
 
@@ -216,19 +215,39 @@ div.csl-indent {
    <td style="text-align:left;"> Name of the state in the United States </td>
   </tr>
   <tr>
-   <td style="text-align:left;"> sex </td>
-   <td style="text-align:left;"> character </td>
-   <td style="text-align:left;"> Gender - Male or female </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> work_status </td>
-   <td style="text-align:left;"> character </td>
-   <td style="text-align:left;"> Working or non working </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> exercise </td>
+   <td style="text-align:left;"> adults </td>
    <td style="text-align:left;"> double </td>
-   <td style="text-align:left;"> Percentage of adults which met the physical activity guidelines in the United Stastes </td>
+   <td style="text-align:left;"> Percentage of adults who met the federal physical activity guidelines </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> men </td>
+   <td style="text-align:left;"> double </td>
+   <td style="text-align:left;"> Percentage of men who met the federal physical activity guidelines </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> women </td>
+   <td style="text-align:left;"> double </td>
+   <td style="text-align:left;"> Percentage of women  who met the federal physical activity guidelines </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> men_working </td>
+   <td style="text-align:left;"> double </td>
+   <td style="text-align:left;"> Percentage of working men who met the federal physical activity guidelines </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> women_working </td>
+   <td style="text-align:left;"> double </td>
+   <td style="text-align:left;"> Percentage of non working men who met the federal physical activity guidelines </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> men_nonworking </td>
+   <td style="text-align:left;"> double </td>
+   <td style="text-align:left;"> Percentage of working women who met the federal physical activity guidelines </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> women_nonworking </td>
+   <td style="text-align:left;"> double </td>
+   <td style="text-align:left;"> Percentage of non working women who met the federal physical activity guidelines </td>
   </tr>
 </tbody>
 </table>
@@ -252,7 +271,7 @@ Note
 <section id="analysis" class="level1 subheading">
 <h1>ANALYSIS</h1>
 <section id="key-statistics" class="level2">
-<h2 class="anchored" data-anchor-id="key-statistics">KEY STATISTICS</h2>
+<h2 class="anchored" data-anchor-id="key-statistics">Key Statistics</h2>
 </section>
 </section>
 <div class="cell">
@@ -260,15 +279,27 @@ Note
 </div>
 <div class="key-background">
 <ul>
-<li>On average, only about <strong>22.52% of adults</strong> in US met the physical activity guideline.</li>
+<li>On average, only about <strong>22.53% of adults</strong> in US met the physical activity guideline.</li>
 <li><strong>Male</strong> exercises more compared to female in US as shown in <a href="#tbl-avggender">Table&nbsp;1</a> and <a href="#fig-avggender">Figure&nbsp;1</a>.</li>
 <li><strong>Working adults</strong> exercises more compared to non working adults in US as shown in <a href="#tbl-avgwork">Table&nbsp;2</a> and <a href="#fig-avgwork">Figure&nbsp;2</a>.</li>
 <li>Percentage of adults who reach the guideline varies by state, where the most active state is <strong>Colorado</strong> reaching around 32% and <strong>Mississippi</strong> being the least active state - around 13.5%, as shown in <a href="#fig-statecomparison">Figure&nbsp;4</a>.</li>
 </ul>
 </div>
-<section id="exercise-rate-comparison---male-vs-female" class="level2 subheading">
+
+<div class="no-row-height column-margin column-container"><div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="facts.jpeg" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">FUN FACT! Did you know that 20 to 40 minutes of aerobic activity can improve aniety and mood disorders that persist for several hours?</figcaption><p></p>
+</figure>
+</div></div><section id="exercise-rate-comparison---male-vs-female" class="level2 subheading">
 <h2 class="anchored" data-anchor-id="exercise-rate-comparison---male-vs-female">Exercise Rate Comparison - Male VS Female</h2>
 </section>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="exercise2.jpeg" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Men and Women have different perspectives towards exercise?</figcaption><p></p>
+</figure>
+</div>
 <div class="panel-tabset">
 <ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true">Table</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false">Graph</a></li></ul>
 <div class="tab-content">
@@ -281,16 +312,16 @@ Note
  <thead>
   <tr>
    <th style="text-align:left;"> Gender </th>
-   <th style="text-align:right;"> Average Excercise Rate (%) </th>
+   <th style="text-align:right;"> Percentage of adults meeting the federal physical guidelines </th>
   </tr>
  </thead>
 <tbody>
   <tr>
-   <td style="text-align:left;"> Male </td>
-   <td style="text-align:right;"> 26 </td>
+   <td style="text-align:left;"> Men </td>
+   <td style="text-align:right;"> 27 </td>
   </tr>
   <tr>
-   <td style="text-align:left;"> Female </td>
+   <td style="text-align:left;"> Women </td>
    <td style="text-align:right;"> 19 </td>
   </tr>
 </tbody>
@@ -306,7 +337,7 @@ Note
 <div id="fig-avggender" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="index_files/figure-html/fig-avggender-1.png" class="img-fluid figure-img" width="672"></p>
-<p></p><figcaption class="figure-caption">Figure 1: Percentage of Male Adults and Female Adults in US who met the physical activity guidelines.</figcaption><p></p>
+<p></p><figcaption class="figure-caption">Figure 1: Percentage of Male Adults and Female Adults in US who met the physical activity guidelines. Men are more active than women.</figcaption><p></p>
 </figure>
 </div>
 </div>
@@ -314,10 +345,17 @@ Note
 </div>
 </div>
 </div>
-<p>On average, 26 % of male adults reach the physical activity guidelines while only 19 % of female adults work out sufficiently. This is the similar issue recognised worldwide, where women are less active than men across most countries. Gender gap in physical activity is mainly due to concerns about stereotypes, sociocultural norms and attitudes towards physical activity since childhood. <span class="citation" data-cites="cla2018time">Cla (<a href="#ref-cla2018time" role="doc-biblioref">2018</a>)</span> found that girls during teenage years tend to experience less confidence and less enjoyment from sports as compared to boys, which then shape their attitudes to physical activity into adulthood. Apart from that, there are less investments in women and girls’ sports, including access to transport, coaching and access to equipment facilities. In adulthood, apart from managing work, women still play a significant role in childcare and managing household, which then lead to less available time to work out.</p>
+<p>On average, <strong>27 % of male adults</strong> reach the physical activity guidelines while only <strong>19 % of female adults</strong> work out sufficiently. This is the similar issue recognised worldwide, where women are less active than men across most countries. Gender gap in physical activity is mainly due to concerns about stereotypes, sociocultural norms and attitudes towards physical activity since childhood.</p>
+<p><span class="citation" data-cites="cla2018time">Cla (<a href="#ref-cla2018time" role="doc-biblioref">2018</a>)</span> found that girls during teenage years tend to experience less confidence and less enjoyment from sports as compared to boys, which then shape their attitudes to physical activity into adulthood. Apart from that, there are less investments in women and girls’ sports, including access to transport, coaching and access to equipment facilities. In adulthood, apart from managing work, women still play a significant role in childcare and managing household, which then lead to less available time to work out.</p>
 <section id="exercise-rate-comparison---working-vs-non-working" class="level2 subheading">
 <h2 class="anchored" data-anchor-id="exercise-rate-comparison---working-vs-non-working">Exercise Rate Comparison - Working VS Non working</h2>
 </section>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="work.jpeg" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Would work impact your exercise routines?</figcaption><p></p>
+</figure>
+</div>
 <div class="panel-tabset">
 <ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-2-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-1" role="tab" aria-controls="tabset-2-1" aria-selected="true">Table</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-2" role="tab" aria-controls="tabset-2-2" aria-selected="false">Plot</a></li></ul>
 <div class="tab-content">
@@ -330,16 +368,16 @@ Note
  <thead>
   <tr>
    <th style="text-align:left;"> Work Status </th>
-   <th style="text-align:right;"> Average Excercise Rate (%) </th>
+   <th style="text-align:right;"> Percentage of adults meeting the federal physical guidelines </th>
   </tr>
  </thead>
 <tbody>
   <tr>
    <td style="text-align:left;"> Working </td>
-   <td style="text-align:right;"> 24 </td>
+   <td style="text-align:right;"> 25 </td>
   </tr>
   <tr>
-   <td style="text-align:left;"> Nonworking </td>
+   <td style="text-align:left;"> Non_working </td>
    <td style="text-align:right;"> 18 </td>
   </tr>
 </tbody>
@@ -355,7 +393,7 @@ Note
 <div id="fig-avgwork" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="index_files/figure-html/fig-avgwork-1.png" class="img-fluid figure-img" width="672"></p>
-<p></p><figcaption class="figure-caption">Figure 2: Percentage of Working Adults and Non working adults in US who met the physical activity guidelines.</figcaption><p></p>
+<p></p><figcaption class="figure-caption">Figure 2: Percentage of Working Adults and Non working adults in US who met the physical activity guidelines. Working Adults are more active than non working adults.</figcaption><p></p>
 </figure>
 </div>
 </div>
@@ -363,11 +401,14 @@ Note
 </div>
 </div>
 </div>
-<p>On average, 24 % of working adults reach the physical activity guidelines as compared to 18 % of non working adults. This maybe associated to the high costs of gyms, where people who are working are more likely to afford the costs as compared to who aren’t.</p>
+<p>Apparently not ! Based on <a href="#tbl-avgwork">Table&nbsp;2</a> and <a href="#fig-avgwork">Figure&nbsp;2</a>, working adults are more active in their lifestyles than non working adults.</p>
+<p>On average, 25 % of working adults reach the physical activity guidelines as compared to 18 % of non working adults. This maybe associated to the high costs of gyms, where people who are working are more likely to afford the costs as compared to who aren’t.</p>
 <section id="geographic-differences---what-about-exercise-rate-in-each-state-in-us" class="level2 subheading">
 <h2 class="anchored" data-anchor-id="geographic-differences---what-about-exercise-rate-in-each-state-in-us">Geographic Differences? - What about exercise rate in each state in US?</h2>
 </section>
-<p>As observed in <a href="#fig-statecomparison2">Figure&nbsp;3</a> and <a href="#fig-statecomparison">Figure&nbsp;4</a>, the percentage of adults reaching the national exercise target varies between states. As mentioned before, the average national level is <strong>22.52%</strong> , which represents the percentage of adults reaching the national physical activity guideline. <a href="#fig-statecomparison2">Figure&nbsp;3</a> shows which states are above the national average, below the national average or around the national average. <a href="#fig-statecomparison">Figure&nbsp;4</a> then shows the disparity of the percentage of adults reaching the national target level in each state.</p>
+<p>Now, we are comparing the percentage of adults meeting the federal exercise target at state level.</p>
+<p><a href="#fig-statecomparison2">Figure&nbsp;3</a> categorise the states into three categories, namely states which are above the national average, states which are below the national average or states which are around the national average. <a href="#fig-statecomparison">Figure&nbsp;4</a> then shows the disparity of the percentage of adults reaching the national target level in each state, ranges from the most active state to the least active state.</p>
+<p>As observed in <a href="#fig-statecomparison2">Figure&nbsp;3</a> and <a href="#fig-statecomparison">Figure&nbsp;4</a>, the percentage of adults reaching the national exercise target varies between states. As mentioned before, the average national level is <strong>22.53%</strong> , which represents the percentage of adults reaching the national physical activity guideline.</p>
 <p>Counties in the central such as Colorado and Utah as well as along the west coasts such as California are much more active where there are higher percentage of adults having more exercise than the national average as observed in <a href="#fig-statecomparison2">Figure&nbsp;3</a>. Among which, <strong>Colorado</strong> is the most active state as shown in <a href="#fig-statecomparison">Figure&nbsp;4</a>, around <strong>32% of adults</strong> meeting the national physical activity guidelines. David Bassett, co-director of the University of Tennessee’s Obesity Research Center points out that Colorado is one of the wealthy regions in the country, and the temperate climate as well as access to trails encourage people to pursue outdoor activities (<span class="citation" data-cites="suddath_2009">Suddath (<a href="#ref-suddath_2009" role="doc-biblioref">2009</a>)</span>).</p>
 <p>In contrast, <a href="#fig-statecomparison2">Figure&nbsp;3</a> shows that most of the states in the southeast are below than the national average, such as Kentucky, Mississippi, West Virginia and South Carolina. We can also observe that <strong>Mississippi</strong> being the least active state in <a href="#fig-statecomparison">Figure&nbsp;4</a> where only <strong>13% of adults</strong> reaching the national target.</p>
 <p>These were discussed in <span class="citation" data-cites="suddath_2009">Suddath (<a href="#ref-suddath_2009" role="doc-biblioref">2009</a>)</span>, where the South’s weather is hot and humid, therefore discouraging people from doing physical activities during summer, unlike the healthier states such as California. The lack of public transportation and access to sidewalks in the region also contribute to the problem, as for most people, the best way to commute is by car. These have also led to a high percentage of health issues such as heart disease and hypertension among the population in that region.</p>
@@ -378,7 +419,7 @@ Note
 <div class="cell-output-display">
 <div id="fig-statecomparison2" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
-<p><img src="index_files/figure-html/fig-statecomparison2-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="index_files/figure-html/fig-statecomparison2-1.png" class="img-fluid figure-img" width="864"></p>
 <p></p><figcaption class="figure-caption">Figure 3: This figure shows the percentage of adults in each state who met the Physical Activity Guidelines. The percentage in each state is compared to the National Average 22 percent, and is categorised into 3 groups, namely Above Average, Average and Below Average. Counties in the central such as Colorado and Utah as well as along the west coasts such as California are much more active. In contrast, most of the states in the southeast are below than the national average, such as Kentucky, Mississippi, West Virginia and South Carolina.</figcaption><p></p>
 </figure>
 </div>
@@ -388,17 +429,17 @@ Note
 <div class="cell-output-display">
 <div id="fig-statecomparison" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
-<p><img src="index_files/figure-html/fig-statecomparison-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="index_files/figure-html/fig-statecomparison-1.png" class="img-fluid figure-img" width="864"></p>
 <p></p><figcaption class="figure-caption">Figure 4: This figure shows the percentage of adults in each state who met the Physical Activity Guidelines. Colorado is the most active state compared to the other states in the United States. The least active state is Mississippi.</figcaption><p></p>
 </figure>
 </div>
 </div>
 </div>
 <section id="conclusion" class="level1 subheading">
-<h1>Conclusion</h1>
+<h1>CONCLUSION</h1>
 </section>
 <p>The federal government released the guideline for physical activities, in which adults are encouraged to perform least 150 minutes a week of moderate-intensity or 75 mins a week of vigorous-intensity aerobic activity, or an equivalent combination of moderate- and vigorous-intensity aerobic activity.</p>
-<p>Nonetheless, only about <strong>22.52% of adults</strong> in US is meeting the national physical activity guideline. Among which, male exercises more compared to female and working adults** exercises more compared to non working adults. In addition to that, our analysis also found that the percentage of adults who get enough physical activities vary greatly by state. The most active state is Colorado and the least active state is Mississippi.</p>
+<p>Nonetheless, only about <strong>22.53% of adults</strong> in US is meeting the national physical activity guideline. Among which, male exercises more compared to female and working adults exercises more compared to non working adults. In addition to that, our analysis also found that the percentage of adults who get enough physical activities vary greatly by state. The most active state is Colorado and the least active state is Mississippi.</p>
 <p>Being physically active is vital and has many health benefits. It reduces the risks of cardiovascular disease, type 2 diabetes, cancers and anxiety. It is time to reflect on how active your lifestyle is!</p>
 
 
