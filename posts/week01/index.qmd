@@ -39,7 +39,7 @@ The purpose of the blog is to discuss the following:
 
 In this analysis, my study will focus on the continental United States, excluding Alaska, Hawaii and the other Pacific Islands. These are mainly for practical reasons as they would skewed the state averages. 
 
-The r packages used in these analysis consist of @tidyverse, @ggplot2, @usmap, @sf, @kableExtra and @viridis. 
+The r packages used in these analysis consist of @tidyverse, @ggplot2, @usmap, @sf, @kableExtra, @viridis, @rio,  @readxl and @reactable. 
 
 ::: {.subheading}
 # DATA SOURCE
@@ -60,10 +60,11 @@ library(ggplot2)
 library(usmap)
 library(sf)
 library(kableExtra)
+library(reactable)
 library(viridis)
 library(rio)
 library(readxl)
-library(emojifont)
+
 ```
 
 ```{r convert xlsx file to csv file}
@@ -108,13 +109,16 @@ It is issued by the U.S. Department of Health and Human Service (DHHS). To meet 
 ```{r}
 #| echo: false
 # Focus on the continental United States, excluding Alaska, Hawaii and the other Pacific Islands.
+# Exclude District of Columbia as it is a district not a state
+# There are 50 states in US - less Alaska and Hawaii equal to a total of 48 states. 
 
 df <- df %>% filter(!state == "All states (average)")%>%
-  filter(!state %in% c("Alaska", "Hawaii")) 
+  filter(!state %in% c("Alaska", "Hawaii")) %>%
+  filter(!state == "District of Columbia")
 
 # Average exercise rate in US 
 avg <- df %>% summarise(avg_exercise = mean(adults, na.rm = TRUE))%>%
-  mutate_if(is.numeric, round, digits = 2)
+  mutate_if(is.numeric, round, digits = 0)
 
 
 ```
@@ -124,7 +128,7 @@ avg <- df %>% summarise(avg_exercise = mean(adults, na.rm = TRUE))%>%
 - On average, only about **`r avg[1,1]`% of adults** in US met the physical activity guideline. 
 - **Male** exercises more compared to female in US as shown in @tbl-avggender and @fig-avggender. 
 - **Working adults** exercises more compared to non working adults in US as shown in @tbl-avgwork and @fig-avgwork. 
-- Percentage of adults who reach the guideline varies by state, where the most active state is **Colorado** reaching around 32% and **Mississippi** being the least active state - around 13.5%, as shown in @fig-statecomparison. 
+- Percentage of adults who reach the guideline varies by state, where the most active state is **Colorado** reaching around 32% and **Mississippi** being the least active state - around 13%, as shown in @fig-statecomparison. 
 
 :::
 
@@ -144,7 +148,7 @@ avg <- df %>% summarise(avg_exercise = mean(adults, na.rm = TRUE))%>%
 ```{r}
 #| echo: false
 #| label: tbl-avggender
-#| tbl-cap: "Average exercise rate by gender"
+#| tbl-cap: "Percentage of Male Adults and Female Adults in US who met the physical activity guidelines. Men are more active than women."
 
 #There are some missing observations
 df_avg <- df %>% select(men:women_nonworking)%>%
@@ -182,7 +186,7 @@ df_gender %>% ggplot(aes(Gender, `Percentage of adults meeting the federal physi
 ```
 ::: 
 
-
+Yes ! Men tend to pursue more physical activities than women.
 
 On average,  **`r df_gender[1,2]` % of male adults** reach the physical activity guidelines while only  **`r df_gender[2,2]` % of female adults** work out sufficiently. This is the similar issue recognised worldwide, where women are less active than men across most countries. Gender gap in physical activity is mainly due to concerns about stereotypes, sociocultural norms and attitudes towards physical activity since childhood. 
 
@@ -201,7 +205,7 @@ On average,  **`r df_gender[1,2]` % of male adults** reach the physical activity
 ```{r}
 #| echo: false
 #| label: tbl-avgwork
-#| tbl-cap: "Average exercise rate by work"
+#| tbl-cap: "Percentage of Working Adults and Non working adults in US who met the physical activity guidelines. Working Adults are more active than non working adults."
 
 df1<- df_avg %>% select(men_working:women_working) %>% 
       pivot_longer(cols = men_working:women_working,
@@ -245,26 +249,20 @@ df_work %>% ggplot(aes(`Work Status`, `Percentage of adults meeting the federal 
 
 Apparently not ! Based on @tbl-avgwork and @fig-avgwork, working adults are more active in their lifestyles than non working adults.
 
-On average,  `r df_work[1,2]` % of working adults reach the physical activity guidelines as compared to `r df_work[2,2]` % of non working adults.  This maybe associated to the high costs of gyms, where people who are working are more  likely to afford the costs as compared to who aren't.
+On average,  **`r df_work[1,2]` % of working adults** reach the physical activity guidelines as compared to **`r df_work[2,2]` % of non working adults**.  This maybe associated to the high costs of gyms, where people who are working are more  likely to afford the costs as compared to who aren't.
 
 ::: {.subheading}
 ## Geographic Differences? - What about exercise rate in each state in US? 
 :::
 Now, we are comparing the percentage of adults meeting the federal exercise target at state level. 
 
-@fig-statecomparison2 categorise the states into three categories, namely states which are above the national average, states which are below the national average or states which are around the national average. @fig-statecomparison then shows the disparity of the percentage of adults reaching the national target level in each state, ranges from the most active state to the least active state. 
+@fig-statecomparison2 categorises the states into three groups, namely states which are above the national average, states which are below the national average or states which are around the national average. @fig-statecomparison then shows the disparity of the percentage of adults reaching the national target level in each state, ranges from the most active state to the least active state. To assist with the comparisons, you can also refer to @fig-ranking which shows the ranking of each state as well as the percentage of adults meeting the target level.
 
-As observed in @fig-statecomparison2 and @fig-statecomparison, the percentage of adults reaching the national exercise target varies between states. As mentioned before, the average national level is **`r avg[1,1]`%** , which represents the percentage of adults reaching the national physical activity guideline.  
-
-Counties in the central such as Colorado and Utah as well as along the west coasts such as California are much more active where there are higher percentage of adults having more exercise than the national average as observed in @fig-statecomparison2.  Among which, **Colorado** is the most active state as shown in @fig-statecomparison, around **32% of adults** meeting the national physical activity guidelines. David Bassett, co-director of the University of Tennessee's Obesity Research Center points out that Colorado is one of the wealthy regions in the country, and the temperate climate as well as access to trails encourage people to pursue outdoor activities (@suddath_2009). 
-
-In contrast, @fig-statecomparison2 shows that most of the states in the southeast are below than the national average, such as Kentucky, Mississippi, West Virginia and South Carolina. We can also observe that **Mississippi** being the least active state in @fig-statecomparison where only **13% of adults** reaching the national target. 
-
-These were discussed in @suddath_2009, where the South's weather is hot and humid, therefore discouraging people from doing physical activities during summer, unlike the healthier states such as California. The lack of public transportation and access to sidewalks in the region also contribute to the problem, as for most people, the best way to commute is by car.  These have also led to a high percentage of health issues such as heart disease and hypertension among the population in that region.
 
 ```{r}
 #| warning: false
 #| echo: false
+#| message: false
 
 # US map plot
 USstates <- bind_cols(state.name, state.abb)%>% 
@@ -315,7 +313,7 @@ last <- df_state_plot %>%
 
 ```{r}
 #| label: fig-statecomparison2
-#| fig-cap: This figure shows the percentage of adults in each state who met the Physical Activity Guidelines. The percentage in each state is compared to the National Average 22 percent, and is categorised into 3 groups, namely Above Average, Average and Below Average. Counties in the central such as Colorado and Utah as well as along the west coasts such as California are much more active. In contrast, most of the states in the southeast are below than the national average, such as Kentucky, Mississippi, West Virginia and South Carolina.
+#| fig-cap: This figure shows the percentage of adults in each state who met the Physical Activity Guidelines. The percentage in each state is compared to the National Average 22 percent, and is categorised into 3 groups, namely Above Average, Average and Below Average. Counties in the central such as Colorado and Utah as well as along the west coasts such as California are much more active. In contrast, most of the states in the southeast are below than the national average, such as Kentucky, Mississippi, West Virginia, Georgia and South Carolina.
 #| fig-width: 9
 #| echo: false
 #| message: false
@@ -342,7 +340,6 @@ ggplot(df_state_plot, aes(long, lat, gsroup = region))+
 ```
 
 
-
 ```{r}
 #| label: fig-statecomparison
 #| fig-cap: This figure shows the percentage of adults in each state who met the Physical Activity Guidelines. Colorado is the most active state compared to the other states in the United States. The least active state is Mississippi.
@@ -365,6 +362,47 @@ ggplot(df_state_plot, aes(long, lat, group = region))+
   ) 
 
 ```
+
+
+```{r}
+#| echo: false
+#| label: fig-ranking 
+#| fig-cap: "Ranking of each state and Percentage of adults meeting the target physical guidelines. Colorado is the most active state with 32% of adults reaching the guideline while Mississippi is the least active state with 13% of adults meeting the guideline. "
+
+# Currently since the HTML output by reactable is not recognised by Quarto as a table, we can only cross-reference it as a "figure"
+
+df_table <- df_state %>% select(region:rank) %>%
+  mutate(region = toupper(region))%>%
+  rename(State = region, 
+         `Adults reaching the National Physical Guidelines (%)` =adults,
+         Ranking = rank)
+
+library(reactable)
+reactable(df_table, 
+          searchable = TRUE, 
+          minRows = 5,
+          defaultPageSize =5,
+          defaultSorted = ("Ranking"),
+          paginationType = "jump",
+          theme= reactableTheme(
+            borderColor = "#dfe2e5",
+            stripedColor = "#f6f8fa",
+            highlightColor = "#f0f5f9",
+            style = list(fontFamily = "sans-serif"),
+          ))
+
+```
+As observed in @fig-statecomparison2 and @fig-statecomparison, the percentage of adults reaching the national exercise target varies between states. As mentioned before, the average national level is **`r avg[1,1]`%** , which represents the percentage of adults reaching the national physical activity guideline.  
+
+Counties in the central such as Colorado and Utah as well as along the west coasts such as California are much more active where there are higher percentage of adults having more exercise than the national average as observed in @fig-statecomparison2.  Among which, **Colorado** is the most active state as shown in @fig-statecomparison and @fig-ranking, around **32% of adults** meeting the national physical activity guidelines. David Bassett, co-director of the University of Tennessee's Obesity Research Center points out that Colorado is one of the wealthy regions in the country, and the temperate climate as well as access to trails encourage people to pursue outdoor activities (@suddath_2009). 
+
+In contrast, @fig-statecomparison2 shows that most of the states in the southeast are below than the national average, such as Kentucky, Mississippi, West Virginia and South Carolina. We can also observe that **Mississippi** being the least active state in @fig-statecomparison and @fig-ranking where only **13% of adults** reaching the national target. 
+
+These were discussed in @suddath_2009, where the South's weather is hot and humid, therefore discouraging people from doing physical activities during summer, unlike the healthier states such as California. The lack of public transportation and access to sidewalks in the region also contribute to the problem, as for most people, the best way to commute is by car.  These have also led to a high percentage of health issues such as heart disease and hypertension among the population in that region.
+
+
+
+
 
 ::: {.subheading}
 # CONCLUSION

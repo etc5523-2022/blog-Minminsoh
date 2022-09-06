@@ -11,7 +11,7 @@ website:
 format:
   html:
     theme: lumen
-    font-family: futura-lt-w01-book,sans-serif;
+    font-family: sans-serif;
     css: styles.css
 
 
