@@ -310,10 +310,9 @@ last <- df_state_plot %>%
 
 
 
-
 ```{r}
 #| label: fig-statecomparison2
-#| fig-cap: This figure shows the percentage of adults in each state who met the Physical Activity Guidelines. The percentage in each state is compared to the National Average 22 percent, and is categorised into 3 groups, namely Above Average, Average and Below Average. Counties in the central such as Colorado and Utah as well as along the west coasts such as California are much more active. In contrast, most of the states in the southeast are below than the national average, such as Kentucky, Mississippi, West Virginia, Georgia and South Carolina.
+#| fig-cap: This figure compares the State Physical Activity Rate to the National Average - 22 percent, and is categorised into 3 groups, namely Above Average, Average and Below Average. Counties in the central such as Colorado and Utah as well as along the west coasts such as California are much more active. In contrast, most of the states in the southeast are below than the national average, such as Kentucky, Mississippi, West Virginia, Georgia and South Carolina.
 #| fig-width: 9
 #| echo: false
 #| message: false
@@ -326,8 +325,8 @@ ggplot(df_state_plot, aes(long, lat, gsroup = region))+
   scale_fill_manual(values = my_palette, 
                     name = "Exercise Rate compared to the National Average", 
                     guide = guide_legend( keyheight = unit(3, units = "mm"), keywidth=unit(12, units = "mm"), label.position = "bottom", title.position = 'top', nrow=1))+
+  ggtitle("Comparing the State Physical Activity Rate to the National Average") +
   theme_void()+
-  ggtitle("Comparing the State Physical Activity Rate to the National Average")+
   theme(
     legend.position = "top",
     plot.background = element_rect(fill = "#f5f5f5", color = NA), 
