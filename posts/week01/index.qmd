@@ -327,7 +327,7 @@ ggplot(df_state_plot, aes(long, lat, gsroup = region))+
                     name = "Exercise Rate compared to the National Average", 
                     guide = guide_legend( keyheight = unit(3, units = "mm"), keywidth=unit(12, units = "mm"), label.position = "bottom", title.position = 'top', nrow=1))+
   theme_void()+
-  ggtitle("Percentage of adults who met the national physical activity guidelines, by state")+
+  ggtitle("Comparing the State Physical Activity Rate to the National Average")+
   theme(
     legend.position = "top",
     plot.background = element_rect(fill = "#f5f5f5", color = NA), 
